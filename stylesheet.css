@@ -215,6 +215,13 @@ button:hover{
 
 /* ================= THREAD ================= */
 
+.threadAdmin{
+
+    color:#ff2b2b;
+    font-weight:bold;
+
+}
+
 .thread{
 
     margin-bottom:28px;
@@ -257,6 +264,13 @@ button:hover{
 }
 
 /* ================= REPLIES ================= */
+
+.replyAdmin{
+
+    color:#ff2b2b;
+    font-weight:bold;
+
+}
 
 .replies{
 
