@@ -104,15 +104,6 @@ if(!response.ok){
     return;
 }
 
-   if(error){
-   
-       console.error(error);
-   
-       alert(error.message);
-   
-       return;
-   }
-
     document.getElementById(
         "threadName"
     ).value = "";
