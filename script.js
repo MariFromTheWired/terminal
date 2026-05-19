@@ -190,6 +190,50 @@ async function addReply(threadId){
    RENDER THREADS
 ========================= */
 
+function formatDate(dateString){
+
+    const date = new Date(dateString);
+
+    const days = [
+        "Sun",
+        "Mon",
+        "Tue",
+        "Wed",
+        "Thu",
+        "Fri",
+        "Sat"
+    ];
+
+    const day =
+    days[date.getDay()];
+
+    const year =
+    String(date.getFullYear())
+    .slice(2);
+
+    const month =
+    String(date.getMonth() + 1)
+    .padStart(2,"0");
+
+    const dayNum =
+    String(date.getDate())
+    .padStart(2,"0");
+
+    const hours =
+    String(date.getHours())
+    .padStart(2,"0");
+
+    const minutes =
+    String(date.getMinutes())
+    .padStart(2,"0");
+
+    const seconds =
+    String(date.getSeconds())
+    .padStart(2,"0");
+
+    return `${month}/${dayNum}/${year}(${day})${hours}:${minutes}:${seconds}`;
+}
+
 async function renderThreads(threads){
 
     const board =
@@ -221,9 +265,21 @@ async function renderThreads(threads){
 
                 <div class="replyAuthor">
 
-                    ${reply.author}
-
-                </div>
+                   ${reply.author}
+               
+                   <span class="replyDate">
+               
+                       ${formatDate(reply.created_at)}
+               
+                   </span>
+               
+                   <span class="replyId">
+               
+                       No.${reply.id}
+               
+                   </span>
+               
+               </div>
 
                 <div class="replyMessage">
 
@@ -241,20 +297,31 @@ async function renderThreads(threads){
 
                 <div class="threadHeader">
 
-                    <span class="threadSubject">
-
-                        ${thread.title}
-
-                    </span>
-
-                    <span class="threadMeta">
-
-                        Posted by
-                        ${thread.author}
-
-                    </span>
-
-                </div>
+                   <span class="threadSubject">
+               
+                       ${thread.title}
+               
+                   </span>
+               
+                   <span class="threadMeta">
+               
+                       ${thread.author}
+               
+                   </span>
+               
+                   <span class="threadDate">
+               
+                       ${formatDate(thread.created_at)}
+               
+                   </span>
+               
+                   <span class="threadId">
+               
+                       No.${thread.id}
+               
+                   </span>
+               
+               </div>
 
                 <div class="threadContent">
 
