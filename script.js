@@ -81,14 +81,14 @@ async function acceptRules(){
 
     }]);
 
-    if(error){
-
-        console.error(error);
-
-        alert("Could not create thread.");
-
-        return;
-    }
+   if(error){
+   
+       console.error(error);
+   
+       alert(error.message);
+   
+       return;
+   }
 
     document.getElementById(
         "threadName"
