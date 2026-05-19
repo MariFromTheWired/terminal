@@ -68,18 +68,41 @@ async function acceptRules(){
         "threadComment"
     ).value.trim();
 
-    const { error } =
-    await db
+const response =
+await fetch(
 
-    .from("threads")
+    "https://atiiettvcisvexbytedj.supabase.co/functions/v1/create-thread",
 
-    .insert([{
+    {
 
-        author,
-        title,
-        content
+        method:"POST",
 
-    }]);
+        headers:{
+            "Content-Type":
+            "application/json"
+        },
+
+        body:JSON.stringify({
+
+            name:author,
+            title,
+            content
+
+        })
+    }
+);
+
+const result =
+await response.json();
+
+if(!response.ok){
+
+    console.error(result);
+
+    alert("Error creating thread");
+
+    return;
+}
 
    if(error){
    
@@ -326,7 +349,11 @@ async function renderThreads(threads){
                
                    </span>
                
-                   <span class="threadMeta">
+                   <span class="${
+                      thread.is_admin
+                      ? "threadAdmin"
+                      : "threadMeta"
+                  }">
                
                        ${thread.author}
                
