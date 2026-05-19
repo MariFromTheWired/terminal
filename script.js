@@ -18,7 +18,7 @@ console.log("SCRIPT LOADED");
 
 console.log(SUPABASE_URL);
 
-console.log(supabase);
+console.log(db);
 
 /* =========================
    OPEN RULES
@@ -75,7 +75,7 @@ async function acceptRules(){
     ).value.trim();
 
     const { error } =
-    await supabase
+    await db
 
     .from("threads")
 
@@ -122,7 +122,7 @@ async function acceptRules(){
 async function loadThreads(){
 
     const { data, error } =
-    await supabase
+    await db
 
     .from("threads")
 
@@ -168,7 +168,7 @@ async function addReply(threadId){
     }
 
     const { error } =
-    await supabase
+    await db
 
     .from("replies")
 
@@ -206,7 +206,7 @@ async function renderThreads(threads){
     for(const thread of threads){
 
         const { data: replies } =
-        await supabase
+        await db
 
         .from("replies")
 
