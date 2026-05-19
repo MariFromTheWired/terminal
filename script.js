@@ -14,12 +14,6 @@ window.supabase.createClient(
     SUPABASE_KEY
 );
 
-console.log("SCRIPT LOADED");
-
-console.log(SUPABASE_URL);
-
-console.log(db);
-
 /* =========================
    OPEN RULES
 ========================= */
