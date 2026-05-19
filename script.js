@@ -309,9 +309,17 @@ async function renderThreads(threads){
 
             <div class="reply">
 
-                <div class="replyAuthor">
+                <div class="${
+                   reply.is_admin
+                   ? "replyAdmin"
+                   : "replyAuthor"
+               }">
 
-                   ${reply.author}
+                   ${
+                         reply.is_admin
+                         ? `${reply.author} ## Admin`
+                         : reply.author
+                     }
                
                    <span class="replyDate">
                
@@ -354,10 +362,14 @@ async function renderThreads(threads){
                       ? "threadAdmin"
                       : "threadMeta"
                   }">
-               
-                       ${thread.author}
-               
-                   </span>
+                  
+                      ${
+                          thread.is_admin
+                          ? `${thread.author} ## Admin`
+                          : thread.author
+                      }
+                  
+                  </span>
                
                    <span class="threadDate">
                
