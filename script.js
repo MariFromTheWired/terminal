@@ -130,7 +130,8 @@ if(!response.ok){
 const images = [
 
     "mari_sus.gif",
-    "futaba_typing.gif"
+    "futaba_typing.gif",
+    "ad.gif"
 
 ];
 
